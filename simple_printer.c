@@ -83,13 +83,14 @@ int print_rev(va_list ap, ps_t *params)
 {
 	int len, sum = 0;
 	char *str = va_arg(ap, char *);
+
 	(void)params;
 
 	if (str)
 	{
-		for (len = 0; *str; str++)
-			len++;
-		str--;
+		for (len = 0; str[len]; len++)
+			;
+		str += len - 1;
 		for (; len > 0; len--, str--)
 			sum += _putchar(*str);
 	}
