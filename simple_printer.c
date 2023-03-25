@@ -91,8 +91,7 @@ int print_rev(va_list ap, ps_t *params)
 			len++;
 		str--;
 		for (; len > 0; len--, str--)
-			int value = _putchar(*str);
-		sum = sum + value;
+			sum += _putchar(*str);
 	}
 	return (sum);
 }
