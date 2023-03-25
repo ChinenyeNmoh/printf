@@ -81,26 +81,22 @@ int print_number_left_shift(char *str, ps_t *params)
  */
 int print_rev(va_list ap, ps_t *params)
 {
-	int len, sum = 0;
+	int len = 0, sum = 0;
 	char *str = va_arg(ap, char *);
 	(void)params;
 
 	if (str)
 	{
-		for (len = 0; *str; len++)
+		while (str[len])
+			len++;
+		for (int i = len - 1; i >= 0; i--)
 		{
-		for (len = len - 1; len > 0; len--)
-		{
-			char z = str[len];
-
-			_putchar(z);
+			_putchar(str[i]);
 			sum++;
-		}
 		}
 	}
 	return (sum);
 }
-
 /**
  * print_rot13 - prints string in rot13
  * @ap: string
